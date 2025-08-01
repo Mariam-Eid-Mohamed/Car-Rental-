@@ -60,11 +60,11 @@ function NavBar() {
               </li>
             </ul>
             <div className="d-flex">
-              <button className="btn btn-light  m-2 btn-lg" type="button">
+              <button className="btn btn-light btn-lg m-2 " type="button">
                 Sign in
               </button>
 
-              <button className="btn btn-primary  m-2 btn-lg" type="button">
+              <button className="btn btn-primary btn-lg  m-2" type="button">
                 Sign up
               </button>
             </div>

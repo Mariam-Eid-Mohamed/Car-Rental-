@@ -4,11 +4,15 @@ import NavBar from "../Navbar/NavBar";
 
 function MasterLayout() {
   return (
-    <>
+    <div className="d-flex flex-column min-vh-100">
       <NavBar />
-      <Outlet />
-      <Footer />
-    </>
+      <div className="container-fluid flex-fill">
+        {" "}
+        {/* flex-grow for page content */}
+        <Outlet />
+      </div>
+      <Footer /> {/* naturally sticks to bottom when content is short */}
+    </div>
   );
 }
 
