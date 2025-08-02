@@ -6,14 +6,10 @@ function Home() {
     <>
       <section className="vh-lg-100">
         <div className="container-fluid">
-          {" "}
           <div className="row">
             <div className="col-lg-6 d-flex flex-column justify-content-center align-items-center">
               <div className="home-header ">
-                <h1 className={`${styles.homeHeading} mb-0`}>
-                  {" "}
-                  Find, book and
-                </h1>
+                <h1 className={`${styles.homeHeading} mb-0`}>Find, book and</h1>
 
                 <h1 className={`${styles.homeHeading} `}>rent a car</h1>
                 <p className={`${styles.homeHeading} text-primary `}>Easily</p>
@@ -66,7 +62,7 @@ function Home() {
             </form>
           </div>
           <div className="d-flex justify-content-center">
-            <h5 className=" text-uppercase text-primary text-center bg-light rounded px-4 py-2 shadow-sm w-auto">
+            <h5 className=" text-uppercase text-primary text-center bg-light rounded px-4 py-2 shadow-sm ">
               popular rental deals
             </h5>
           </div>
@@ -74,12 +70,6 @@ function Home() {
             {" "}
             Most Popular Cars Rental Deals
           </h1>
-          <div className="row">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-3"></div>
-            <div className="col-lg-3"></div>
-            <div className="col-lg-3"></div>
-          </div>
         </div>
       </section>
     </>
