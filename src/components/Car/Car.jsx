@@ -9,7 +9,7 @@ import automaticIcon from "../../assets/images/card/Frame.png";
 import arrowIcon from "../../assets/images/card/arrow-right.png";
 import { Link } from "react-router-dom";
 
-function Car({ carInfo }) {
+function Car({ carInfo, getCarDetails }) {
   // we want to make a random distribution of 3 images as api doesnot provide them so i stores all images in an array and made the imagetouse is the image of carimages of indexe(carid modulus the 3(number of images))
   const carImages = [carImg1, carImg2, carImg3];
   const ImageToUse = carImages[carInfo.id % carImages.length];
@@ -68,10 +68,14 @@ function Car({ carInfo }) {
                 <span>{carInfo.price} /day</span>
               </div>
             </div>
-
-            <Link to="#" className="btn btn-primary w-100 my-2">
-              View details
-              <img src={arrowIcon} alt="" className="ms-1" />
+            <Link to="#" className=" my-2">
+              <button
+                className="btn btn-primary w-100"
+                onClick={() => getCarDetails(carInfo)}
+              >
+                View details
+                <img src={arrowIcon} alt="" className="ms-1" />
+              </button>
             </Link>
           </div>
         </div>

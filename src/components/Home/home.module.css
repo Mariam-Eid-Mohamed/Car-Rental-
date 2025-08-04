@@ -5,3 +5,32 @@
 }
 
 /* animation of car */
+
+.bookingImg {
+  width: 100px;
+  height: 100px;
+}
+/* animation for slider(scroll) */
+.scrollContainer {
+  overflow: hidden;
+  width: 100%;
+}
+
+.scrollContent {
+  display: flex;
+  animation: scroll 10s linear infinite;
+}
+
+.scrollContent img {
+  width: 300px;
+  margin-right: 70px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

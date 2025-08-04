@@ -21,6 +21,9 @@ function Cars() {
       console.log(error);
     }
   };
+  let getCarDetails = (currentCar) => {
+    console.log("Car details:", currentCar);
+  };
   useEffect(() => {
     getCars();
   }, []);
@@ -40,7 +43,7 @@ function Cars() {
         </div>
         <div className="row g-4">
           {currentcars.map((car) => (
-            <Car carInfo={car} key={car.id} />
+            <Car carInfo={car} key={car.id} getCarDetails={getCarDetails} />
           ))}
         </div>
         <div className="d-flex justify-content-center mt-5">

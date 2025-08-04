@@ -6,7 +6,7 @@ function MasterLayout() {
   return (
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
-      <div className="container-fluid flex-fill">
+      <div className="container-fluid px-0 flex-fill px-0">
         {" "}
         {/* flex-grow for page content */}
         <Outlet />
