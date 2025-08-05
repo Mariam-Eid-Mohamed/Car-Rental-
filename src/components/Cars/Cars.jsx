@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "./cars.module.css";
 import Car from "../Car/Car";
+import Loading from "../Loading/Loading";
 
 function Cars() {
   let [cars, setCars] = useState([]);
@@ -12,13 +13,16 @@ function Cars() {
   const indexOfLastCar = currentPage * carsPerPage;
   const indexOfFirstCar = indexOfLastCar - carsPerPage;
   const currentcars = cars?.slice(indexOfFirstCar, indexOfLastCar);
-
+  let [loading, setLoading] = useState(true);
   let getCars = async () => {
     try {
+      setLoading(true);
       let response = await axios.get("https://myfakeapi.com/api/cars/");
       setCars(response?.data?.cars);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -27,77 +31,85 @@ function Cars() {
   }, []);
   return (
     <>
-      <div className="container">
-        <div className="cars-heading">
-          <div className="d-flex justify-content-center">
-            <h5 className=" text-uppercase text-primary text-center bg-light rounded px-4 py-2 shadow-sm ">
-              popular rental deals
-            </h5>
+      {loading ? (
+        <div className="d-flex justify-content-center align-items-center vh-100">
+          <Loading />
+        </div>
+      ) : (
+        <div className="container">
+          <div className="cars-heading">
+            <div className="d-flex justify-content-center">
+              <h5 className=" text-uppercase text-primary text-center bg-light rounded px-4 py-2 shadow-sm ">
+                popular rental deals
+              </h5>
+            </div>
+            <h1 className={`${styles.homeHeading} my-3 text-center`}>
+              {" "}
+              Most Popular Cars Rental Deals
+            </h1>
           </div>
-          <h1 className={`${styles.homeHeading} my-3 text-center`}>
-            {" "}
-            Most Popular Cars Rental Deals
-          </h1>
-        </div>
-        <div className="row g-4">
-          {currentcars.map((car) => (
-            <Car carInfo={car} key={car.id} />
-          ))}
-        </div>
-        <div className="d-flex justify-content-center mt-5">
-          <nav aria-label="Page navigation">
-            <ul className="pagination">
-              <li
-                className={`page - item ${currentPage === 1 ? "disabled" : ""}`}
-              >
-                <button
-                  className="page-link"
-                  onClick={() =>
-                    setCurrentPage((prev) => Math.max(prev - 1, 1))
-                  }
+          <div className="row g-4">
+            {currentcars.map((car) => (
+              <Car carInfo={car} key={car.id} />
+            ))}
+          </div>
+          <div className="d-flex justify-content-center mt-5">
+            <nav aria-label="Page navigation">
+              <ul className="pagination">
+                <li
+                  className={`page - item ${
+                    currentPage === 1 ? "disabled" : ""
+                  }`}
                 >
-                  Previous
-                </button>
-              </li>
-              {/* Dynamic page numbers */}
-              {Array.from({ length: totalPages }, (_, i) => i + 1) // Create array of page numbers
-                .map((pageNum) => (
-                  <li
-                    key={pageNum}
-                    className={`page-item ${
-                      currentPage === pageNum ? "active" : ""
-                    }`}
+                  <button
+                    className="page-link"
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.max(prev - 1, 1))
+                    }
                   >
-                    <button
-                      className="page-link"
-                      onClick={() => setCurrentPage(pageNum)}
+                    Previous
+                  </button>
+                </li>
+                {/* Dynamic page numbers */}
+                {Array.from({ length: totalPages }, (_, i) => i + 1) // Create array of page numbers
+                  .map((pageNum) => (
+                    <li
+                      key={pageNum}
+                      className={`page-item ${
+                        currentPage === pageNum ? "active" : ""
+                      }`}
                     >
-                      {pageNum}
-                    </button>
-                  </li>
-                ))
-                .slice(
-                  Math.max(0, currentPage - 3), // start from 3 pages before current
-                  currentPage + 2 // end 2 pages after current
-                )}
-              <li
-                class={`page-item ${
-                  currentPage === totalPages ? "disabled" : ""
-                }`}
-              >
-                <button
-                  className="page-link"
-                  onClick={() =>
-                    setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                  }
+                      <button
+                        className="page-link"
+                        onClick={() => setCurrentPage(pageNum)}
+                      >
+                        {pageNum}
+                      </button>
+                    </li>
+                  ))
+                  .slice(
+                    Math.max(0, currentPage - 3), // start from 3 pages before current
+                    currentPage + 2 // end 2 pages after current
+                  )}
+                <li
+                  class={`page-item ${
+                    currentPage === totalPages ? "disabled" : ""
+                  }`}
                 >
-                  Next
-                </button>
-              </li>
-            </ul>
-          </nav>
+                  <button
+                    className="page-link"
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                    }
+                  >
+                    Next
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
