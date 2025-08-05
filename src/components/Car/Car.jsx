@@ -26,7 +26,7 @@ function Car({ carInfo, getCarDetails }) {
           </div>
 
           <div className="card-body">
-            <h3 className="card-title">{carInfo.car_model}</h3>
+            <h3 className="card-title">{carInfo?.car_model}</h3>
             <div className="card-content ">
               <div className="d-flex reviews mb-2">
                 <div className="img-fluid">
@@ -65,14 +65,11 @@ function Car({ carInfo, getCarDetails }) {
               <hr />
               <div className="d-flex justify-content-between  price mb-1">
                 <span>Price</span>
-                <span>{carInfo.price} /day</span>
+                <span>{carInfo?.price} /day</span>
               </div>
             </div>
-            <Link to="#" className=" my-2">
-              <button
-                className="btn btn-primary w-100"
-                onClick={() => getCarDetails(carInfo)}
-              >
+            <Link to={`/cars/${carInfo?.id}`} className=" my-2">
+              <button className="btn btn-primary w-100">
                 View details
                 <img src={arrowIcon} alt="" className="ms-1" />
               </button>

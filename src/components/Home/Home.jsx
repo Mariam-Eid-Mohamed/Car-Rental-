@@ -137,7 +137,7 @@ function Home() {
             )}
           </div>
           <div className="d-flex justify-content-center">
-            <Link to="cars" className=" my-2">
+            <Link to="/cars" className=" my-2">
               <button className="btn btn-secondary btn-lg my-5">
                 Show All Cars
                 <img src={arrowIcon} alt="" className="ms-1" />
