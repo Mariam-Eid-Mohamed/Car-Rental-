@@ -8,10 +8,10 @@ import YoutubeIcon from "../../assets/images/footer/youtube.png";
 function Footer() {
   return (
     <>
-      <footer className="text-white py-4 mt-4 bg-footer  ">
-        <div className="container">
-          <div className="row my-5 ">
-            <div className="col-6 col-lg-3  order-lg-1 ">
+      <footer className="text-white py-4  bg-footer  ">
+        <div className="container px-0">
+          <div className="row g-0  my-5 ">
+            <div className="col-6 col-lg-3  order-lg-1 px-0 ">
               <div className="d-flex flex-column ">
                 <img
                   src={FooterLogo}

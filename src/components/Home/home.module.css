@@ -25,6 +25,9 @@
   width: 300px;
   margin-right: 70px;
 }
+.testmonialImg {
+  width: 300px;
+}
 
 @keyframes scroll {
   0% {
@@ -33,4 +36,17 @@
   100% {
     transform: translateX(-50%);
   }
+}
+/* styling section 4 */
+.Car2Img {
+  width: 600px;
+}
+
+.iphoneIMg {
+  width: 400px;
+}
+.section-5 {
+  background-image: url(../../assets/images/landing-page/sec-6/bg-sec6.png);
+
+  height: "400px";
 }
