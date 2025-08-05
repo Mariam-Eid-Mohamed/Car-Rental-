@@ -84,7 +84,7 @@ function Home() {
                   <img
                     src={CarLandingImg}
                     alt="porshe-car"
-                    className={`w-100 mt-5 `}
+                    className={`w-100 mt-5 ${styles.homeCar}`}
                   />
                 </div>
               </div>

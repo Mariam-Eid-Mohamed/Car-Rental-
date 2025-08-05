@@ -5,6 +5,22 @@
 }
 
 /* animation of car */
+.homeCar {
+  animation: car 1.5s ease-out forwards;
+  transform: translate(300px, -300px) scale(0);
+  opacity: 0;
+}
+
+@keyframes car {
+  0% {
+    transform: translate(300px, -300px) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
 
 .bookingImg {
   width: 100px;
