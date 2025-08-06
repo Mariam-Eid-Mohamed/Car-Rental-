@@ -1,0 +1,9 @@
+.testmonialSliderImg {
+  height: 400px;
+  object-fit: cover;
+}
+.homeHeading {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 58px;
+}

@@ -12,10 +12,11 @@ import sliderImg4 from "../../assets/images/landing-page/ac.png";
 import sliderImg5 from "../../assets/images/landing-page/audi.png";
 //section 4 images
 import CarImgS4 from "../../assets/images/landing-page/sec-4/Audi 1.png";
-import chatImg from "../../assets/images/landing-page/sec-4/chat.png";
+
 import messageImg from "../../assets/images/landing-page/sec-4/message.png";
 import userImg from "../../assets/images/landing-page/sec-4/user.png";
 import vectorImg from "../../assets/images/landing-page/sec-4/Vector.png";
+
 //section7
 import iphone14Img from "../../assets/images/landing-page/sec-7/iPhone-14.png";
 import iosImg from "../../assets/images/landing-page/ios.png";
@@ -30,6 +31,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Car from "../Car/Car";
+import TestmonialSlider from "../TestmonialSlider/TestmonialSlider";
 function Home() {
   let [cars, setCars] = useState([]);
   let getCars = async () => {
@@ -320,50 +322,9 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="section-5">
-        <div className="container">
-          <div className="d-flex  flex-column align-items-center">
-            <h5 className=" text-uppercase text-primary text-center bg-light rounded px-4 py-2 shadow-sm ">
-              testimonials
-            </h5>
-            <h1 className={`${styles.homeHeading} my-5 text-center`}>
-              what people say about us?
-            </h1>
-          </div>
-          {/* <div className="scrollContainer">
-            <div className="scrollContent">
-              <div class="card d-flex  flex-row bg-danger ">
-                <img
-                  src={FirstImgSec6}
-                  className={`${styles.testmonialImg}`}
-                  alt="..."
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card’s content.
-                  </p>
-                </div>
-              </div>
-              <div class="card d-flex  flex-row bg-danger ">
-                <img
-                  src={SecondImgSec6}
-                  className={`${styles.testmonialImg}`}
-                  alt="..."
-                />
-                <div className="">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card’s content.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
-        </div>
-      </section>
+
+      <TestmonialSlider />
+
       <section className="section-6 ">
         <div className="container mt-5">
           <div className="row ">
